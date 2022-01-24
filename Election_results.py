@@ -16,6 +16,7 @@ candidate_names = []
 candidate_votes = {}
 counties_votes = {}
 percent_votes = {}
+county_names = []
 winning_candidate = []
 
 with open(file_to_load) as election_data:
@@ -33,6 +34,10 @@ with open(file_to_load) as election_data:
         # create a list of candidates
         if row[2] not in candidate_names:
             candidate_names.append(row[2])
+           
+        if row[1] not in county_names:
+            county_names.append(row[1])
+             
         # Add to the total vote count
         total_votes = total_votes + 1
         try: 
@@ -44,7 +49,10 @@ with open(file_to_load) as election_data:
         except:
             counties_votes[row[1]] = 1
 
-#3. The percentage of votes each candidate won
+print(candidate_names)           
+print(county_names)   
+
+# 3. The percentage of votes each candidate won
 for name in candidate_names:
     percent_votes[name] = round((candidate_votes[name] / total_votes) * 100, 2)
 
@@ -71,6 +79,22 @@ if percent_votes[candidate_names[2]]  >= 50.1 :
 else:
     print(f"{candidate_names[2]} {percent_votes[candidate_names[2]]}% You did not win\n")
 
+#The maximum votes a candidate received
+max_votes = max(percent_votes, key=percent_votes.get)
+print(f"\n{max_votes} @ {percent_votes[candidate_names[1]]}% of the votes.\n")
+
+#The name of the county that received the maximum number of votes 
+max_county_votes = max(counties_votes, key=counties_votes.get)
+print(f"\n{max_county_votes} received the maximum number of votes\n")
+
+#The highest number of votes received
+county_votes_max = counties_votes.values()
+
+max_county_votes_value = max(county_votes_max)
+print(f"\n{max_county_votes_value}\n")
+
+
+
 with open(file_to_save, "w") as txt_file:
 
     # Print the final vote count (to terminal)
@@ -80,9 +104,19 @@ with open(file_to_save, "w") as txt_file:
         f"Total Votes: {total_votes:,}\n"
         f"-------------------------\n\n"
         
-        f"{candidate_names}\n"
+        f"The candidates are {candidate_names}\n"
 
-        f"\n{counties_votes}\n")
+        f"\nThe counties are {county_names}\n"
+
+        f"\nThe candidates received: {candidate_votes} votes\n"
+        
+        f"\nThe votes per county: {counties_votes}\n"
+        
+        f"\nThe percent votes each candidate received: {percent_votes}\n"
+        
+        f"\nThe winner is {max_votes} @ {percent_votes[candidate_names[1]]}% of the votes. With {candidate_votes[candidate_names[1]]} votes\n"
+        
+        f"\n{max_county_votes} received the maximum number of votes @ {max_county_votes_value}\n")
 
     print(election_results, end="")
 
