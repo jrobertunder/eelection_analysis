@@ -1,1 +1,9 @@
-hello world, Arapahoe, Denver, el paso
+
+Election Results
+-------------------------
+Total Votes: 369,711
+-------------------------
+
+['Charles Casper Stockham', 'Diana DeGette', 'Raymon Anthony Doane']
+
+{'Jefferson': 38855, 'Denver': 306055, 'Arapahoe': 24801}
