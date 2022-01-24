@@ -4,6 +4,16 @@ Election Results
 Total Votes: 369,711
 -------------------------
 
-['Charles Casper Stockham', 'Diana DeGette', 'Raymon Anthony Doane']
+The candidates are ['Charles Casper Stockham', 'Diana DeGette', 'Raymon Anthony Doane']
 
-{'Jefferson': 38855, 'Denver': 306055, 'Arapahoe': 24801}
+The counties are ['Jefferson', 'Denver', 'Arapahoe']
+
+The candidates received: {'Charles Casper Stockham': 85213, 'Diana DeGette': 272892, 'Raymon Anthony Doane': 11606} votes
+
+The votes per county: {'Jefferson': 38855, 'Denver': 306055, 'Arapahoe': 24801}
+
+The percent votes each candidate received: {'Charles Casper Stockham': 23.05, 'Diana DeGette': 73.81, 'Raymon Anthony Doane': 3.14}
+
+The winner is Diana DeGette @ 73.81% of the votes. With 272892 votes
+
+Denver received the maximum number of votes @ 306055
